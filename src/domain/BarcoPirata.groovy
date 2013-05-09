@@ -1,5 +1,9 @@
 package domain;
 
 class BarcoPirata {
-	def capacidad
+	def capacidad, cantidadTripulantes = 0
+	
+	Boolean tieneSuficienteTripulacion() {
+		cantidadTripulantes / capacidad >= 0.9
+	} 
 }

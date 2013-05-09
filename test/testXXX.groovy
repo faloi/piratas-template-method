@@ -9,4 +9,10 @@ class testXXX {
 		def unBarcoPirata = new BarcoPirata(capacidad: 10)
 		assert false == new BusquedaDelTesoro().puedeSerCumplidaPor(unBarcoPirata)
 	}
+	
+	@Test
+	void "se puede cumplir una mision si la tripulacion es >= a 90% de la capacidad"() {
+		def unBarcoPirata = new BarcoPirata(capacidad: 10, cantidadTripulantes: 9)		
+		assert new BusquedaDelTesoro().puedeSerCumplidaPor(unBarcoPirata)
+	}
 }
