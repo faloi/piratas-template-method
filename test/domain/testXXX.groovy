@@ -50,5 +50,15 @@ class testXXX {
 		
 		assert false == Mision.BUSQUEDA_DEL_TESORO().puedeSerCumplidaPor(unBarcoPirata)
 	}
-	
+
+	@Test
+	void "no se puede cumplir busqueda del tesoro si alguno de los piratas no tiene un elemento clave"() {
+		def wallyFeed = new Pirata(items: ["brujula", "mapamundi", "globoTerraqueo"], monedas: 4)
+		def otis = new Pirata(items: ["tortaConLimaAdentro", "pastillasDeMenta"], monedas: 5)
+		
+		def unBarcoPirata = new BarcoPirata(capacidad: 2, tripulacion: [wallyFeed, otis])
+		
+		assert false == Mision.BUSQUEDA_DEL_TESORO().puedeSerCumplidaPor(unBarcoPirata)
+	}
+		
 }
