@@ -3,7 +3,7 @@ package domain
 import static org.junit.Assert.*
 import org.junit.Test
 
-class testXXX {
+class PiratasTest {
 	@Test
 	void "no se puede cumplir una mision si la tripulacion es < a 90% de la capacidad"() {
 		def unBarcoPirata = new BarcoPirata(capacidad: 10)
@@ -72,7 +72,7 @@ class testXXX {
 	}
 	
 	@Test
-	void "no se puede cumplir un saqueo si alguno de los piratas tienen mas de 100 monedas"() {
+	void "no se puede cumplir un saqueo si alguno de los piratas tiene mas de 100 monedas"() {
 		def stan = new Pirata(monedas: 500)
 		def pegnosePete = new Pirata(monedas: 10)
 		

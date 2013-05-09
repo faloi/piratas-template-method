@@ -1,7 +1,7 @@
 package domain;
 
 class Mision {
-	def condicionAdicional = { true }
+	def condicionAdicional
 	
 	static BUSQUEDA_DEL_TESORO() {
 		def elementosRequeridos = ["brujula", "mapa", "botellaDeGrogXD"]
