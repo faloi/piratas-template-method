@@ -7,7 +7,7 @@ class testXXX {
 	@Test
 	void "no se puede cumplir una mision si la tripulacion es < a 90% de la capacidad"() {
 		def unBarcoPirata = new BarcoPirata(capacidad: 10)
-		assert false == new ConvertirseEnLeyenda().puedeSerCumplidaPor(unBarcoPirata)
+		assert false == new Mision().puedeSerCumplidaPor(unBarcoPirata)
 	}
 	
 	@Test
@@ -18,7 +18,7 @@ class testXXX {
 		
 		def unBarcoPirata = new BarcoPirata(capacidad: 1, tripulacion: [guybrushThreepwood])
 		
-		assert new ConvertirseEnLeyenda().puedeSerCumplidaPor(unBarcoPirata)
+		assert Mision.CONVERTIRSE_EN_LEYENDA().puedeSerCumplidaPor(unBarcoPirata)
 	}
 	
 	@Test
@@ -30,7 +30,7 @@ class testXXX {
 		
 		def unBarcoPirata = new BarcoPirata(capacidad: 2, tripulacion: [elaineMarley, guybrushThreepwood])
 		
-		assert false == new ConvertirseEnLeyenda().puedeSerCumplidaPor(unBarcoPirata)
+		assert false == Mision.CONVERTIRSE_EN_LEYENDA().puedeSerCumplidaPor(unBarcoPirata)
 	}
 	
 	@Test
@@ -40,7 +40,7 @@ class testXXX {
 		
 		def unBarcoPirata = new BarcoPirata(capacidad: 2, tripulacion: [haggisMcMutton, reneRottingham])
 		
-		assert new BusquedaDelTesoro().puedeSerCumplidaPor(unBarcoPirata)
+		assert Mision.BUSQUEDA_DEL_TESORO().puedeSerCumplidaPor(unBarcoPirata)
 	}
 
 	@Test
@@ -48,7 +48,7 @@ class testXXX {
 		def largoLaGrande = new Pirata(items: ["brujula", "pala"], monedas: 10000)
 		def unBarcoPirata = new BarcoPirata(capacidad: 1, tripulacion: [largoLaGrande])
 		
-		assert false == new BusquedaDelTesoro().puedeSerCumplidaPor(unBarcoPirata)
+		assert false == Mision.BUSQUEDA_DEL_TESORO().puedeSerCumplidaPor(unBarcoPirata)
 	}
 	
 }
