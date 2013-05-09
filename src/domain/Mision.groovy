@@ -1,6 +1,6 @@
 package domain;
 
-class BusquedaDelTesoro {
+class Mision {
 	def puedeSerCumplidaPor(unBarcoPirata) {
 		unBarcoPirata.tieneSuficienteTripulacion()
 	}
