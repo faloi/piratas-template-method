@@ -1,6 +1,6 @@
-import static org.junit.Assert.*;
+package domain
 
-import domain.*
+import static org.junit.Assert.*
 import org.junit.Test
 
 class testXXX {
@@ -32,5 +32,23 @@ class testXXX {
 		
 		assert false == new ConvertirseEnLeyenda().puedeSerCumplidaPor(unBarcoPirata)
 	}
+	
+	@Test
+	void "se puede cumplir busqueda del tesoro si todos los piratas tienen un elemento clave y como maximo 5 monedas"() {
+		def haggisMcMutton = new Pirata(items: ["afeitadora", "tijeras", "botellaDeGrogXD"], monedas: 4)
+		def reneRottingham = new Pirata(items: ["peluca", "mapa"], monedas: 2)
+		
+		def unBarcoPirata = new BarcoPirata(capacidad: 2, tripulacion: [haggisMcMutton, reneRottingham])
+		
+		assert new BusquedaDelTesoro().puedeSerCumplidaPor(unBarcoPirata)
+	}
 
+	@Test
+	void "no se puede cumplir busqueda del tesoro si algun pirata tiene mas de 5 monedas"() {
+		def largoLaGrande = new Pirata(items: ["brujula", "pala"], monedas: 10000)
+		def unBarcoPirata = new BarcoPirata(capacidad: 1, tripulacion: [largoLaGrande])
+		
+		assert false == new BusquedaDelTesoro().puedeSerCumplidaPor(unBarcoPirata)
+	}
+	
 }

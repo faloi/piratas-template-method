@@ -1,5 +1,5 @@
 package domain
 
 class Pirata {
-	def items
+	def items, monedas = 0
 }
