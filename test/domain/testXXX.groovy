@@ -61,4 +61,23 @@ class testXXX {
 		assert false == Mision.BUSQUEDA_DEL_TESORO().puedeSerCumplidaPor(unBarcoPirata)
 	}
 		
+	@Test
+	void "se puede cumplir un saqueo si todos los piratas tienen menos de 100 monedas"() {
+		def hermanToothrot = new Pirata(monedas: 0)
+		def carla = new Pirata(monedas: 50)
+		
+		def unBarcoPirata = new BarcoPirata(capacidad:2, tripulacion: [hermanToothrot, carla])
+		
+		assert Mision.SAQUEO("Booty Island").puedeSerCumplidaPor(unBarcoPirata)
+	}
+	
+	@Test
+	void "no se puede cumplir un saqueo si alguno de los piratas tienen mas de 100 monedas"() {
+		def stan = new Pirata(monedas: 500)
+		def pegnosePete = new Pirata(monedas: 10)
+		
+		def unBarcoPirata = new BarcoPirata(capacidad:2, tripulacion: [stan, pegnosePete])
+		
+		assert false == Mision.SAQUEO("Barco Fantasma").puedeSerCumplidaPor(unBarcoPirata)
+	}
 }
