@@ -3,16 +3,16 @@ package domain;
 class Mision {
 	def condicionAdicional
 	
-	static BUSQUEDA_DEL_TESORO() {
+	static busquedaDelTesoro() {
 		def elementosRequeridos = ["brujula", "mapa", "botellaDeGrogXD"]
 		new Mision(condicionAdicional: { unPirata -> unPirata.items.any { elementosRequeridos.contains(it) } && unPirata.monedas <= 5 })
 	}
 	
-	static CONVERTIRSE_EN_LEYENDA() {
+	static convertirseEnLeyenda() {
 		new Mision(condicionAdicional: { unPirata -> unPirata.items.size >= 10 })
 	}
 	
-	static SAQUEO(victima) {
+	static saqueo(victima) {
 		def maximoMonedasPermitido = 100
 		new Mision(condicionAdicional: { unPirata -> unPirata.monedas < maximoMonedasPermitido })
 	}

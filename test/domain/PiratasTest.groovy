@@ -18,7 +18,7 @@ class PiratasTest {
 		
 		def unBarcoPirata = new BarcoPirata(capacidad: 1, tripulacion: [guybrushThreepwood])
 		
-		assert Mision.CONVERTIRSE_EN_LEYENDA().puedeSerCumplidaPor(unBarcoPirata)
+		assert Mision.convertirseEnLeyenda().puedeSerCumplidaPor(unBarcoPirata)
 	}
 	
 	@Test
@@ -30,7 +30,7 @@ class PiratasTest {
 		
 		def unBarcoPirata = new BarcoPirata(capacidad: 2, tripulacion: [elaineMarley, guybrushThreepwood])
 		
-		assert false == Mision.CONVERTIRSE_EN_LEYENDA().puedeSerCumplidaPor(unBarcoPirata)
+		assert false == Mision.convertirseEnLeyenda().puedeSerCumplidaPor(unBarcoPirata)
 	}
 	
 	@Test
@@ -40,7 +40,7 @@ class PiratasTest {
 		
 		def unBarcoPirata = new BarcoPirata(capacidad: 2, tripulacion: [haggisMcMutton, reneRottingham])
 		
-		assert Mision.BUSQUEDA_DEL_TESORO().puedeSerCumplidaPor(unBarcoPirata)
+		assert Mision.busquedaDelTesoro().puedeSerCumplidaPor(unBarcoPirata)
 	}
 
 	@Test
@@ -48,7 +48,7 @@ class PiratasTest {
 		def largoLaGrande = new Pirata(items: ["brujula", "pala"], monedas: 10000)
 		def unBarcoPirata = new BarcoPirata(capacidad: 1, tripulacion: [largoLaGrande])
 		
-		assert false == Mision.BUSQUEDA_DEL_TESORO().puedeSerCumplidaPor(unBarcoPirata)
+		assert false == Mision.busquedaDelTesoro().puedeSerCumplidaPor(unBarcoPirata)
 	}
 
 	@Test
@@ -58,7 +58,7 @@ class PiratasTest {
 		
 		def unBarcoPirata = new BarcoPirata(capacidad: 2, tripulacion: [wallyFeed, otis])
 		
-		assert false == Mision.BUSQUEDA_DEL_TESORO().puedeSerCumplidaPor(unBarcoPirata)
+		assert false == Mision.busquedaDelTesoro().puedeSerCumplidaPor(unBarcoPirata)
 	}
 		
 	@Test
@@ -68,7 +68,7 @@ class PiratasTest {
 		
 		def unBarcoPirata = new BarcoPirata(capacidad:2, tripulacion: [hermanToothrot, carla])
 		
-		assert Mision.SAQUEO("Booty Island").puedeSerCumplidaPor(unBarcoPirata)
+		assert Mision.saqueo("Booty Island").puedeSerCumplidaPor(unBarcoPirata)
 	}
 	
 	@Test
@@ -78,6 +78,6 @@ class PiratasTest {
 		
 		def unBarcoPirata = new BarcoPirata(capacidad:2, tripulacion: [stan, pegnosePete])
 		
-		assert false == Mision.SAQUEO("Barco Fantasma").puedeSerCumplidaPor(unBarcoPirata)
+		assert false == Mision.saqueo("Barco Fantasma").puedeSerCumplidaPor(unBarcoPirata)
 	}
 }
