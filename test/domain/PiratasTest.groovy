@@ -7,7 +7,7 @@ class PiratasTest {
 	@Test
 	void "no se puede cumplir una mision si la tripulacion es < a 90% de la capacidad"() {
 		def unBarcoPirata = new BarcoPirata(capacidad: 10)
-		assert false == new Mision().puedeSerCumplidaPor(unBarcoPirata)
+		assert false == unBarcoPirata.puedeCumplir(new Mision())
 	}
 	
 	@Test
@@ -18,7 +18,7 @@ class PiratasTest {
 		
 		def unBarcoPirata = new BarcoPirata(capacidad: 1, tripulacion: [guybrushThreepwood])
 		
-		assert Mision.convertirseEnLeyenda().puedeSerCumplidaPor(unBarcoPirata)
+		assert unBarcoPirata.puedeCumplir(Mision.convertirseEnLeyenda())
 	}
 	
 	@Test
@@ -30,7 +30,7 @@ class PiratasTest {
 		
 		def unBarcoPirata = new BarcoPirata(capacidad: 2, tripulacion: [elaineMarley, guybrushThreepwood])
 		
-		assert false == Mision.convertirseEnLeyenda().puedeSerCumplidaPor(unBarcoPirata)
+		assert false == unBarcoPirata.puedeCumplir(Mision.convertirseEnLeyenda())
 	}
 	
 	@Test
@@ -40,7 +40,7 @@ class PiratasTest {
 		
 		def unBarcoPirata = new BarcoPirata(capacidad: 2, tripulacion: [haggisMcMutton, reneRottingham])
 		
-		assert Mision.busquedaDelTesoro().puedeSerCumplidaPor(unBarcoPirata)
+		assert unBarcoPirata.puedeCumplir(Mision.busquedaDelTesoro())
 	}
 
 	@Test
@@ -48,7 +48,7 @@ class PiratasTest {
 		def largoLaGrande = new Pirata(items: ["brujula", "pala"], monedas: 10000)
 		def unBarcoPirata = new BarcoPirata(capacidad: 1, tripulacion: [largoLaGrande])
 		
-		assert false == Mision.busquedaDelTesoro().puedeSerCumplidaPor(unBarcoPirata)
+		assert false == unBarcoPirata.puedeCumplir(Mision.busquedaDelTesoro())
 	}
 
 	@Test
@@ -58,7 +58,7 @@ class PiratasTest {
 		
 		def unBarcoPirata = new BarcoPirata(capacidad: 2, tripulacion: [wallyFeed, otis])
 		
-		assert false == Mision.busquedaDelTesoro().puedeSerCumplidaPor(unBarcoPirata)
+		assert false == unBarcoPirata.puedeCumplir(Mision.busquedaDelTesoro())
 	}
 		
 	@Test
@@ -68,7 +68,7 @@ class PiratasTest {
 		
 		def unBarcoPirata = new BarcoPirata(capacidad:2, tripulacion: [hermanToothrot, carla])
 		
-		assert Mision.saqueo("Booty Island").puedeSerCumplidaPor(unBarcoPirata)
+		assert unBarcoPirata.puedeCumplir(Mision.saqueo("Booty Island"))
 	}
 	
 	@Test
@@ -78,6 +78,6 @@ class PiratasTest {
 		
 		def unBarcoPirata = new BarcoPirata(capacidad:2, tripulacion: [stan, pegnosePete])
 		
-		assert false == Mision.saqueo("Barco Fantasma").puedeSerCumplidaPor(unBarcoPirata)
+		assert false == unBarcoPirata.puedeCumplir(Mision.saqueo("Barco Fantasma"))
 	}
 }
