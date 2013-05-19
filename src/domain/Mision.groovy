@@ -1,23 +1,23 @@
 package domain;
 
 class Mision {
-	def condicionAdicional
+	def criterioAceptacionPirata
 	
 	static busquedaDelTesoro() {
-		def elementosRequeridos = ["brujula", "mapa", "botellaDeGrogXD"]
-		new Mision(condicionAdicional: { unPirata -> unPirata.items.any { elementosRequeridos.contains(it) } && unPirata.monedas <= 5 })
+		def itemsRequeridos = ["brujula", "mapa", "botellaDeGrogXD"]
+		new Mision(criterioAceptacionPirata: { Pirata unPirata -> unPirata.contieneAlgunItem(itemsRequeridos) && unPirata.getMonedas() <= 5 })
 	}
 	
 	static convertirseEnLeyenda() {
-		new Mision(condicionAdicional: { unPirata -> unPirata.items.size >= 10 })
+		new Mision(criterioAceptacionPirata: { Pirata unPirata -> unPirata.getCantidadItems() >= 10 })
 	}
 	
 	static saqueo(victima) {
 		def maximoMonedasPermitido = 100
-		new Mision(condicionAdicional: { unPirata -> unPirata.monedas < maximoMonedasPermitido })
+		new Mision(criterioAceptacionPirata: { Pirata unPirata -> unPirata.getMonedas() < maximoMonedasPermitido })
 	}
 	
 	def puedeSerCumplidaPor(unBarcoPirata) {
-		unBarcoPirata.tieneSuficienteTripulacion() && unBarcoPirata.tripulacion.every(condicionAdicional)
+		unBarcoPirata.tieneSuficienteTripulacion() && unBarcoPirata.getTripulacion().every(criterioAceptacionPirata)
 	}
 }
