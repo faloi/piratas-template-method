@@ -9,7 +9,7 @@ class CollectionUtilsTest {
 	
 	@Test
 	void "containsAny retorna true si la coleccion contiene algun elemento de la segunda coleccion"() {
-		assert true == [1, 2, 3].containsAny([2, 5])
+		assert [1, 2, 3].containsAny([2, 5])
 	}
 	
 	@Test
